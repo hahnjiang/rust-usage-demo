@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use serde_json::{json, Result, Value};
+use serde_json::Result;
 
 #[derive(Serialize, Deserialize)]
 struct Person {
@@ -45,7 +45,8 @@ fn read_and_write(read_path: &str, write_path: &str) -> Result<()> {
      Ok(())
 }
 
-fn main() {
+fn main() -> Result<()> {
     typed_example("/tmp/rust_data.json");
     read_and_write("/tmp/rust_data.json", "/tmp/rust_data_w.json");
+    Ok(())
 }
